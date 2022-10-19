@@ -2,25 +2,25 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
 
-from family.models import family
+from family.models import Family
 
 
-def create_family(request, name: str, last_name: str, BirthDate: str):
+def create_family(request, name: str, last_name: str, birthdate: str):
 
-    template = loader.get_template("template_family.html")
+    template = loader.get_template("family/new_member.html")
 
-    family = family(
-        name=name, last_name=last_name, BirthDate=BirthDate
+    new_member = Family(
+        name=name, last_name=last_name, birthdate=birthdate
     )
-    Family.save()  
+    new_member.save()  
 
-    context_dict = {"family": family}
+    context_dict = {"new_member": new_member}
     render = template.render(context_dict)
     return HttpResponse(render)
 
 
 def family(request):
-    family = family.objects.all()
+    family = Family.objects.all()
 
     context_dict = {"family": family}
 

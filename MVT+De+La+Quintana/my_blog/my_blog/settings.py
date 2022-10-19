@@ -56,7 +56,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            "C:/Users/NACHO/Documents/coder_projects/django-coderhouse-project/my_blog/templates/"
+            "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
